@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>新可多工作室</title>
+</head>
+<body>
+  <script>
+    // 获取用户输入的密码
+    var password = prompt("欢迎来到翁舜知的个人主页！请输入访问码(在个签)：");
+
+    // 检查密码是否正确
+    if (password === "kdgzs123") {
+      // 密码正确，结束
+      alert("访问码正确。");
+    } else {
+      // 密码错误，继续
+      alert("访问码错误，请重试。");
+      window.location.reload();
+    }
+  </script>
+</body>
+</html>    
+<meta charset="utf-8">
+<title>新可多工作室室长-个人主页</title>
+<script>
+    function dian(){
+        alert("  你干嘛 哎哎呦  （不好意思，串台了...）");
+    }
+</script>
+<style>
+* {
+  box-sizing: border-box;
+}
+ 
+body {
+  font-family: Arial;
+  padding: 10px;
+}
+ 
+/* 头部标题 */
+.header {
+  padding: 30px;
+  text-align: center;
+  background: white;
+}
+ 
+.header h1 {
+  font-size: 50px;
+}
+ 
+/* 导航条 */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+ 
+/* 导航条链接 */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+ 
+/* 链接颜色修改 */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+ 
+/* 创建两列 */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+ 
+/* 右侧栏 */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+ 
+/* 图像部分 */
+.fakeimg {
+  background-color:psc.jpg ;
+  width: 100%;
+  padding: 20px;
+}
+ 
+/* 文章卡片效果 */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+ 
+/* 列后面清除浮动 */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ 
+/* 底部 */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+ 
+/* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+ 
+/* 响应式布局 -屏幕尺寸小于 400px 时，导航等布局改为上下布局 */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body background="psc.jpg" mpa-version="7.5.8" mpa-extension-id="....">
+
+<div class="header">
+  <div id="box" style="opacity: 0.01;"> <h2>可多工作室の个人主页</h2></div>
+    	<script>
+        	var i = 1;
+        	var flag = true;
+        	function fade() {
+            	var box = document.getElementById('box');
+            	if (document.all) {
+                	box.style.filter = "alpha(opacity='+i+')";
+            	} else {
+                	box.style.opacity = parseFloat(i / 100);
+            	}
+            	if (i < 100 && flag) {
+                	i += 5;
+            	}
+            	else {
+                	flag = false;
+           	}
+            	if (i > 0 && !flag) {
+                	i -= 5;
+            	}
+            	else {
+                	flag = true;
+            	}
+            	setTimeout('fade()', 50);
+        	}
+        	fade();
+    	</script>
+  <p>翁舜知：新可多工作室室长</p>
+</div>
+
+<div class="topnav">
+  <a href="https://code.xueersi.com/home/project/detail?lang=code&pid=53259574&version=offline&form=python&langType=python">新可多招人</a>
+  <a href="https://code.xueersi.com/space/36773610">跑酷联动号</a>
+  <a href="https://code.xueersi.com/space/9909258?to=medal">我的荣誉</a>
+  <a href="https://code.xueersi.com/home/project/detail?lang=scratch&pid=23363422&version=3.0&langType=scratch">代表作</a>
+  <a href="https://code.xueersi.com/ide/code/53268438">封面源码（可借鉴）</a>
+  <a href="https://code.xueersi.com/ide/code/53115862?from=adapt&v=1715558004560">公告（会更新）</a>
+  <a onclick="dian()">点我！！</a>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>大事件</h2>
+      <h3>2024年</h3>
+      <p>2023年5月的某一天，我回来了<p>
+      <p>在2024年1月20日，我创始了可多工作室</p>
+      <p>在2024年5月22日，可多工作室解散</p>
+      <p>在2024年5月23日，新可多成立</p>
+    </div>
+    <div class="card">
+    
+      <h2>关于我</h2>
+      <de1>有时会氵，</del></de>社区老极客</de>
+    </div>
+    <div class="card">
+      
+    <div class="card">
+      <h3>关注我</h3>
+      <p></p>
+      <p>  关注一下呗。或加入可多工作室</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <hr/>
+  <h2>hhh</h2>
+</div>
+
+</body>
+</html>
