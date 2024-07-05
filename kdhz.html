@@ -1,180 +1,368 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-</script>
-  
+  <meta charset="UTF-8">
   <title>新可多工作室官网-首页</title>
-  <meta charset="utf-8">
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <style>
     * {
       box-sizing: border-box;
     }
     
     body {
-      font-family: Arial;
-      padding: 10px;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f1f1;
+      animation: fadeIn ease 3s;
     }
     
-    /* 头部标题 */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    
     .header {
-      padding: 30px;
+      background-color: #333;
+      color: white;
       text-align: center;
-      background: white;
+      padding: 30px;
     }
     
-    .header h1 {
-      font-size: 50px;
-    }
-    
-    /* 导航条 */
     .topnav {
       overflow: hidden;
       background-color: #333;
+      text-align: center;
+      animation: slideDown ease 1s;
     }
     
-    /* 导航条链接 */
+    @keyframes slideDown {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(0); }
+    }
+    
     .topnav a {
-      float: left;
-      display: block;
+      display: inline-block;
       color: #f2f2f2;
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
+      transition: background-color 0.3s;
     }
     
-    /* 链接颜色修改 */
     .topnav a:hover {
       background-color: #ddd;
       color: black;
     }
     
-    /* 创建两列 */
-    /* Left column */
-    .leftcolumn {   
-      float: left;
-      width: 100%;
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     
-    /* 右侧栏 */
-    .rightcolumn {
-      float: left;
-      width: 25%;
-      background-color: #f1f1f1;
-      padding-left: 20px;
-    }
-    
-    /* 图像部分 */
-    .fakeimg {
-      background-color: psc.jpg;
-      width: 100%;
+    .leftcolumn {
+      flex: 70%;
       padding: 20px;
     }
     
-    /* 文章卡片效果 */
+    .rightcolumn {
+      flex: 30%;
+      padding: 20px;
+      background-color: #f1f1f1;
+    }
+    
     .card {
       background-color: white;
       padding: 20px;
-      margin-top: 20px;
+      margin: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      flex: 1 0 21%; /* 四个卡片一行 */
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     
-    /* 列后面清除浮动 */
-    .row:after {
-      content: "";
-      display: table;
-      clear: both;
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
     
-    /* 底部 */
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 30vh;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
     .footer {
-      padding: 20px;
       text-align: center;
-      background: #ddd;
+      padding: 20px;
+      background-color: #333;
+      color: white;
       margin-top: 20px;
     }
     
-    /* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */
     @media screen and (max-width: 800px) {
-      .leftcolumn, .rightcolumn {   
-        width: 100%;
-        padding: 0;
+      .leftcolumn, .rightcolumn {
+        flex: 100%;
+      }
+      .card {
+        flex: 100%;
       }
     }
     
-    /* 响应式布局 - 屏幕尺寸小于 400px 时，导航等布局改为上下布局 */
-    @media screen and (max-width: 400px) {
-      .topnav a {
-        float: none;
-        width: 100%;
+    .floating-text {
+      position: absolute;
+      font-size: 20px;
+      color: black;
+      animation: floatUp 2s forwards;
+    }
+    
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100px);
       }
     }
     
-    .center-red-text {
-      text-align: center;
-      color: red;
+    .click-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .fireworks {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
     }
   </style>
 </head>
-<body background="psc.jpg" mpa-version="7.5.8" mpa-extension-id="....">
-  
+<body>
   <div class="header">
-    <div id="box" style="opacity: 0.01;"> <h1>新可多官网</h1></div>
-    <script>
-      var i = 1;
-      var flag = true;
-      function fade() {
-        var box = document.getElementById('box');
-        if (document.all) {
-          box.style.filter = "alpha(opacity='+i+')";
-        } else {
-          box.style.opacity = parseFloat(i / 100);
-        }
-        if (i < 100 && flag) {
-          i += 5;
-        } else {
-          flag = false;
-        }
-        if (i > 0 && !flag) {
-          i -= 5;
-        } else {
-          flag = true;
-        }
-        setTimeout('fade()', 50);
-      }
-      fade();
-    </script>
+    <h1>新可多官网</h1>
     <p>全称新可多工作室</p>
   </div>
   
   <div class="topnav">
-    <div class="topnav">
-     <a id="myLink" href="index.html">首页</a>
+    <a href=".html">首页</a>
     <a href="https://code.xueersi.com/home/project/detail?lang=code&pid=53259574&version=offline&form=python&langType=python">新可多招聘</a>
-    <a id="myLink" href="kdhz.html">合作</a>
-    <a id="myLink" href="kdxm.html">项目</a>
-    <a id="myLink" href="kdcy.html">成员名单</a>
-    <a id="myLink" href="kdgywm.html">关于我们</a>
-      </script>
-      <a onclick="dian()">点我！！</a>
-    </div>
+    <a href="kdhz.html">合作</a>
+    <a href="kdxm.html">项目</a>
+    <a href="kdcy.html">成员名单</a>
+    <a href="kdgywm.html">关于我们</a>
   </div>
   
   <div class="row">
     <div class="leftcolumn">
-      <div class="card">
-        <p style="text-align: center; font-size: 40px;">暂未开放，敬请期待。</p>
-       
+      <div class="card" onclick="window.open('https://code.xueersi.com/space/9439092');">
+        <div class="click-area">
+          <p>cz工作室</p>
+          <p>室长：<span>陈致</span></p>
         </div>
       </div>
+      <div class="card" onclick="window.open('https://code.xueersi.com/space/8582930');">
+        <div class="click-area">
+          <p>dece工作室</p>
+          <p>室长：<span>陈溯</span></p>
+        </div>
+      </div>
+      <div class="card" onclick="window.open('https://code.xueersi.com/space/12907647');">
+        <div class="click-area">
+          <p>逆天团队</p>
+          <p>室长：<span>小轩</span></p>
+        </div>
+      </div>
+      <!-- 添加更多卡片 -->
     </div>
   </div>
+  
+  <footer class="footer">
+    <p>© 2024 新可多工作室官网.所有权利保留。转载请申请并标明出处</p>
+  </footer>
+
+  <canvas id="fireworks" class="fireworks"></canvas>
 
   <script>
-    function dian(){
-      alert("  你干嘛 哎哎呦  ");
-    }
-  </script>
+    function createFireworks({ config, anime }) {
+      const canvasElement = document.querySelector('#fireworks');
+      const defaultConfig = {
+        colors: config?.colors || [[255, 255, 255], [255, 0, 0], [0, 255, 0], [0, 0, 255]],
+        numberOfParticules: 20,
+        orbitRadius: { min: 50, max: 100 },
+        circleRadius: { min: 10, max: 20 },
+        diffuseRadius: { min: 50, max: 100 },
+        animeDuration: { min: 900, max: 1500 }
+      };
+      config = Object.assign(defaultConfig, config);
 
-  <footer>
- <p style="text-align: center; font-size: 12px; background-color: #ccc; padding: 10px;">© 2024 新可多工作室官网.所有权利保留。   转载请申请并标明出处</p>  </footer>
+      let pointerX = 0;
+      let pointerY = 0;
+      const colors = config.colors;
+
+      const canvasEl = document.querySelector('.fireworks');
+      const ctx = canvasEl.getContext('2d');
+
+      function setCanvasSize(canvasEl) {
+        canvasEl.width = window.innerWidth;
+        canvasEl.height = window.innerHeight;
+        canvasEl.style.width = `${window.innerWidth}px`;
+        canvasEl.style.height = `${window.innerHeight}px`;
+      }
+
+      function updateCoords(e) {
+        pointerX = e.clientX || (e?.touches[0] ? e.touches[0].clientX : e.changedTouches[0].clientX);
+        pointerY = e.clientY || (e?.touches[0] ? e.touches[0].clientY : e.changedTouches[0].clientY);
+      }
+
+      function setParticuleDirection(p) {
+        const angle = (anime.random(0, 360) * Math.PI) / 180;
+        const value = anime.random(config.diffuseRadius.min, config.diffuseRadius.max);
+        const radius = [-1, 1][anime.random(0, 1)] * value;
+        return {
+          x: p.x + radius * Math.cos(angle),
+          y: p.y + radius * Math.sin(angle)
+        };
+      }
+
+      function createParticule(x, y) {
+        const p = {
+          x,
+          y,
+          color: `rgba(${colors[anime.random(0, colors.length - 1)].join(',')},${anime.random(0.2, 0.8)})`,
+          radius: anime.random(config.circleRadius.min, config.circleRadius.max),
+          endPos: null,
+          draw() {}
+        };
+        p.endPos = setParticuleDirection(p);
+        p.draw = function () {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+        };
+        return p;
+      }
+
+      function createCircle(x, y) {
+        const p = {
+          x,
+          y,
+          color: '#000',
+          radius: 0.1,
+          alpha: 0.5,
+          lineWidth: 6,
+          draw() {}
+        };
+        p.draw = function () {
+          ctx.globalAlpha = p.alpha;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
+          ctx.lineWidth = p.lineWidth;
+          ctx.strokeStyle = p.color;
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+        };
+        return p;
+      }
+
+      const render = anime({
+        duration: Infinity,
+        update() {
+          ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
+        }
+      });
+
+      document.addEventListener(
+        'pointerdown',
+        (e) => {
+          render.play();
+          updateCoords(e);
+          animateParticules(pointerX, pointerY);
+        },
+        false
+      );
+
+      window.addEventListener(
+        'resize',
+        () => {
+          setCanvasSize(canvasEl);
+        },
+        false
+      );
+
+      function animateParticules(x, y) {
+        const circle = createCircle(x, y);
+        const particules = [];
+        for (let i = 0; i < config.numberOfParticules; i++) {
+          particules.push(createParticule(x, y));
+        }
+        anime
+          .timeline()
+          .add({
+            targets: particules,
+            x: (p) => p.endPos.x,
+            y: (p) => p.endPos.y,
+            radius: 0.1,
+            duration: anime.random(config.animeDuration.min, config.animeDuration.max),
+            easing: 'easeOutExpo',
+            update: render.update
+          })
+          .add({
+            targets: circle,
+            radius: anime.random(config.orbitRadius.min, config.orbitRadius.max),
+            lineWidth: 0,
+            alpha: {
+              value: 0,
+              easing: 'linear',
+              duration: anime.random(600, 800)
+            },
+            duration: anime.random(1200, 1800),
+            easing: 'easeOutExpo',
+            update: render.update,
+            offset: 0
+          });
+      }
+
+      function handleVisibilityChange() {
+        if (document.hidden) {
+          render.pause();
+        } else {
+          render.play();
+        }
+      }
+
+      document.addEventListener('visibilitychange', handleVisibilityChange, false);
+      setCanvasSize(canvasElement);
+    }
+
+    function dian() {
+      const event = new MouseEvent('pointerdown', {
+        view: window,
+        bubbles: true,
+        cancelable: true
+      });
+      document.dispatchEvent(event);
+    }
+
+    createFireworks({ anime });
+  </script>
+  
 </body>
 </html>
