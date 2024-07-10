@@ -154,7 +154,7 @@
   
   <div class="topnav">
     <a href="kdgzs.html">首页</a>
-    <a href="https://code.xueersi.com/home/project/detail?lang=code&pid=53259574&version=offline&form=python&langType=python">新可多招聘</a>
+    <a href="https://code.xueersi.com/home/project/detail?lang=code&pid=53259574&version=offline&form=python&langType=python" target="_blank">招聘</a> 
     <a href="kdhz.html">合作</a>
     <a href="kdxm.html">项目</a>
     <a href="kdcy.html">成员名单</a>
@@ -169,7 +169,7 @@
         <p class="center-red-text">暑假快乐！</p>
         
         <div class="center">
-          <img src="kdlogo.webp" alt="我们的logo">
+          <img src="kdlogo.png" alt="我们的logo">
         </div>
       </div>
     </div>
@@ -178,7 +178,7 @@
       <div class="card">
         <h2>最新咨询</h2>
         <p>庆祝新可多工作室官网翻新成功！</p>
-        <p>"0702cx"事件正在处理中</p>
+        <p>特别感谢张涵哲张涵哲为此官网的重大贡献！</p>
         
 
       </div>
@@ -189,4 +189,98 @@
     <p>© 2024 新可多工作室官网.所有权利保留。转载请申请并标明出处</p>
   </footer>
 
+  <canvas id="fireworks" class="fireworks"></canvas>
 
+  <script>
+    function createFireworks({ config, anime }) {
+      const canvasElement = document.querySelector('#fireworks');
+      const defaultConfig = {
+        colors: config?.colors || [[255, 255, 255], [255, 0, 0], [0, 255, 0], [0, 0, 255]],
+        numberOfParticules: 20,
+        orbitRadius: { min: 50, max: 100 },
+        circleRadius: { min: 10, max: 20 },
+        diffuseRadius: { min: 50, max: 100 },
+        animeDuration: { min: 900, max: 1500 }
+      };
+      config = Object.assign(defaultConfig, config);
+
+      let pointerX = 0;
+      let pointerY = 0;
+      const colors = config.colors;
+
+      const canvasEl = document.querySelector('.fireworks');
+      const ctx = canvasEl.getContext('2d');
+
+      function setCanvasSize(canvasEl) {
+        canvasEl.width = window.innerWidth;
+        canvasEl.height = window.innerHeight;
+        canvasEl.style.width = `${window.innerWidth}px`;
+        canvasEl.style.height = `${window.innerHeight}px`;
+      }
+
+      function updateCoords(e) {
+        pointerX = e.clientX || (e?.touches[0] ? e.touches[0].clientX : e.changedTouches[0].clientX);
+        pointerY = e.clientY || (e?.touches[0] ? e.touches[0].clientY : e.changedTouches[0].clientY);
+      }
+
+      function setParticuleDirection(p) {
+        const angle = (anime.random(0, 360) * Math.PI) / 180;
+        const value = anime.random(config.diffuseRadius.min, config.diffuseRadius.max);
+        const radius = [-1, 1][anime.random(0, 1)] * value;
+        return {
+          x: p.x + radius * Math.cos(angle),
+          y: p.y + radius * Math.sin(angle)
+        };
+      }
+
+      function createParticule(x, y) {
+        const p = {
+          x,
+          y,
+          color: `rgba(${colors[anime.random(0, colors.length - 1)]},${anime.random(0.2, 0.8)})`,
+          radius: anime.random(config.circleRadius.min, config.circleRadius.max),
+          endPos: null,
+          draw() {}
+        };
+        p.endPos = setParticuleDirection(p);
+        p.draw = function () {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+        };
+        return p;
+      }
+
+      function createCircle(x, y) {
+        const p = {
+          x,
+          y,
+          color: '#000',
+          radius: 0.1,
+          alpha: 0.5,
+          lineWidth: 6,
+          draw() {}
+        };
+        p.draw = function () {
+          ctx.globalAlpha = p.alpha;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
+          ctx.lineWidth = p.lineWidth;
+          ctx.strokeStyle = p.color;
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+        };
+        return p;
+      }
+
+      function renderParticule(anim) {
+        for (let i = 0; i < anim.animatables.length; i++) {
+          anim.animatables[i].target.draw();
+        }
+      }
+
+      function animateParticules(x, y) {
+        const circle = createCircle(x, y);
+        const particules = [];
+        for (let i = 0; i <
