@@ -81,6 +81,8 @@
       transition: 0.3s;
       flex: 1 1 calc(33.333% - 20px);
       box-sizing: border-box;
+      position: relative;
+      cursor: pointer;
     }
     
     .card:hover {
@@ -133,15 +135,6 @@
         transform: translateY(-100px);
       }
     }
-    
-    .click-area {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
@@ -162,27 +155,27 @@
   <div class="row">
     <div class="leftcolumn">
       <div class="row">
-        <div class="card">
+        <div class="card" data-link="https://code.xueersi.com/home/project/detail?lang=scratch&pid=24624860&version=3.0&langType=scratch">
           <h2>大型纪录片</h2>
           <p>持续更新中，总点赞量高达300！#鬼畜#梗</p>
         </div>
-        <div class="card">
+        <div class="card" data-link="https://kdgzswsz.github.io/">
           <h2>新可多官网</h2>
           <p>其实就是这里瓦...</p>
         </div>
-        <div class="card">
+        <div class="card" data-link="https://kdgzswsz.github.io/">
           <h2>kd好友圈</h2>
           <p>类似朋友圈滴网站，正在开发中...</p>
         </div>
-        <div class="card">
-          <h2>项目4</h2>
-          <p>未开发</p>
+        <div class="card" data-link="https://kdgzswsz.github.io/kdchm.github.io/">
+          <h2>《彩虹猫》</h2>
+          <p>一个恶搞网站</p>
         </div>
-        <div class="card">
+        <div class="card" data-link="https://openai.com">
           <h2>项目5</h2>
           <p>未开发</p>
         </div>
-        <div class="card">
+        <div class="card" data-link="https://openai.com">
           <h2>项目6</h2>
           <p>未开发</p>
         </div>
@@ -193,5 +186,22 @@
   <footer class="footer">
     <p>© 2024 新可多工作室官网.所有权利保留。转载请申请并标明出处</p>
   </footer>
+
+  <script>
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', function() {
+        anime({
+          targets: card,
+          scale: [
+            { value: 1.2, duration: 200, easing: 'easeInOutQuad' },
+            { value: 1, duration: 200, easing: 'easeInOutQuad' }
+          ],
+          complete: function() {
+            window.open(card.getAttribute('data-link'), '_blank');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
