@@ -1,645 +1,196 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="kd">
 <head>
-  <meta charset="UTF-8">
-  <title>新可多工作室官网</title>
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    
-    
-    
-    
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f1f1f1;
-      animation: fadeIn ease 3s;
-    }
-    
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-    
-    .header {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 30px;
-    }
-    
-    .topnav {
-      overflow: hidden;
-      background-color: #333;
-      text-align: center;
-      animation: slideDown ease 1s;
-    }
-    
-    @keyframes slideDown {
-      0% { transform: translateY(-100%); }
-      100% { transform: translateY(0); }
-    }
-    
-    .topnav a {
-      display: inline-block;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-    
-    .topnav a:hover {
-      background-color: #ddd;
-      color: black;
-    }
-    
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    
-    .leftcolumn {
-      flex: 70%;
-      padding: 20px;
-    }
-    
-    .rightcolumn {
-      flex: 30%;
-      padding: 20px;
-      background-color: #f1f1f1;
-    }
-    
-    .card {
-      background-color: white;
-      padding: 20px 15px;
-      margin: 8.2px;
-      text-align: center;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-      transition: 0.3s all;
-      flex: 1 0 21%; /* 四个卡片一行 */
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .card2 {
-      background-color: white;
-      padding: 20px;
-      margin: 8px;
-      text-align: center;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-      transition: 0.3s;
-      flex: 1 0 21%;
-      box-sizing: border-box;
-      cursor: pointer;
-    }
-    
-    .card2:hover {
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    }
-    .card3 {
-      background-color: white;
-      padding: 5px 20px;
-      margin: 8px;
-      text-align: center;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-      transition: 0.3s;
-      flex: 1 1 calc(33.333% - 20px);
-      box-sizing: border-box;
-      position: relative;
-      cursor: pointer;
-    }
-    
-    .card3:hover {
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    }
-    .card:hover {
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    }
-    
-    .center {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 30vh;
-    }
-    
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-    
-    .footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #333;
-      color: white;
-      margin-top: 20px;
-    }
-    
-    @media screen and (max-width: 800px) {
-      .leftcolumn, .rightcolumn {
-        flex: 100%;
-      }
-      .card {
-        flex: 100%;
-      }
-    }
-    .floating-text {
-      position: absolute;
-      font-size: 20px;
-      color: black;
-      animation: floatUp 2s forwards;
-    }
-    
-    @keyframes floatUp {
-      0% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(-100px);
-      }
-    }
-    
-    .click-area {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-    }
-    
-    .fireworks {
-      position: absolute;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-    }
-    body{
-        font-size: 1.35em;
-    }
-  </style>
-  <script>
-    let lst = ['hm', 'hz', 'cy', 'gywm', 'xm'];
-    function $(id){
-        return document.getElementById(id);
-    }
-    function switchtb(tb){
-        let i = 0;
-        for (;i<=4;i++){
-            if (lst[i] == tb){
-                $(tb).style="display: flex;";
-            }
-            else{
-                $(lst[i]).style="display: none;";
-            }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xxj aw</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #4b6cb7, #182848, #7b5caa, #5e2a8a);
+            background-size: 400% 400%;
+            animation: gradient-animation 15s ease infinite;
         }
-    }
-  </script>
-  <script>
-    function openInNewTab(url) {
-      window.open(url, '_blank');
-    }
 
-    // 监听键盘事件
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'k') {
-        document.kPressed = true;
-      }
-      if (event.key === 'd') {
-        document.dPressed = true;
-      }
-      if (document.kPressed && document.dPressed) {
-        var password = prompt("请输入管理员密码：");
-        if (password === "kd123") {
-          alert("进入管理员模式                             根本没有管理员模式~");
-        } else {
-          alert("进入管理员模式就怪了");
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        document.kPressed = false;
-        document.dPressed = false;
-      }
-    });
 
-    document.addEventListener('keyup', function(event) {
-      if (event.key === 'k') {
-        document.kPressed = false;
-      }
-      if (event.key === 'd') {
-        document.dPressed = false;
-      }
-    });
+        .intro {
+            text-align: center;
+            margin: 20px;
+            width: 90%;
+        }
 
+        .intro h1, .intro h3 {
+            margin: 0;
+        }
 
-  </script>
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 220px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #4b6cb7;
+            font-weight: bold;
+            display: block;
+            padding: 10px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .card a:hover {
+            color: #182848;
+        }
+
+        .card i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #ccc;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #4b6cb7, #182848);
+            transition: background 0.5s;
+        }
+
+        .color-picker {
+            margin: 20px;
+            text-align: center;
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .color-picker label {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .color-picker input {
+            margin-right: 20px;
+        }
+
+        .custom-card-form {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .custom-card-form input {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .custom-card-form button {
+            padding: 10px;
+            background: #4b6cb7;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            transition: background 0.3s;
+        }
+
+        .custom-card-form button:hover {
+            background: #182848;
+        }
+    </style>
 </head>
 <body>
-  <div class="header">
-    <h1>新可多官网</h1>
-    <p>全称新可多工作室</p>
-  </div>
-  
-  <div class="topnav" style="font-size: 0.9em;">
-    <a href="javascript:void(0);" onclick="switchtb('hm');">首页</a>
-    <a href="https://code.xueersi.com/home/project/detail?lang=code&pid=53259574&version=offline&form=python&langType=python" target="_blank">招聘</a> 
-    <a href="javascript:void(0);" onclick="switchtb('hz');">合作</a>
-    <a href="javascript:void(0);" onclick="switchtb('xm');">项目</a>
-    <a href="javascript:void(0);" onclick="switchtb('cy');">成员名单</a>
-    <a href="javascript:void(0);" onclick="switchtb('gywm');">关于我们</a>
-  </div>
-  
-  <div class="row" id="hz" style="display: none;">
-    <div class="leftcolumn">
-      <div class="card" onclick="window.open('https://code.xueersi.com/space/9439092');">
-        <div class="click-area">
-          <p>cz工作室</p>
-          <p>合作工作室</span></p>
-        </div>
-      </div>
-      <div class="card" onclick="window.open('https://code.xueersi.com/space/8582930');">
-        <div class="click-area">
-          <p>dece工作室</p>
-          <p>合作工作室</p>
-        </div>
-      </div>
-      <div class="card" onclick="window.open('https://code.xueersi.com/space/12907647');">
-        <div class="click-area">
-          <p>逆天团队</p>
-          <p>合作工作室</span></p>
-        </div>
-            </div>
-      <div class="card" onclick="window.open('https://code.xueersi.com/space/9030962');">
-        <div class="click-area">
-          <p>新人工作室</p>
-          <p>旗下工作室</span></p>
-        </div>
-            </div>
-      <div class="card" onclick="window.open('https://code.xueersi.com/space/11979059');">
-        <div class="click-area">
-          <p>银河团队</p>
-          <p>合作团队</span></p>
-        </div>
-            </div>
-      <div class="card" onclick="window.open('https://code.xueersi.com/space/22650542');">
-        <div class="click-area">
-          <p>游龙工作室</p>
-          <p>旗下工作室</span></p>
-        </div>
-            </div>
-      <div class="card" onclick="window.open('https://code.xueersi.com/space/20830510');">
-        <div class="click-area">
-          <p>凌叶阁</p>
-          <p>合作工作室</span></p>
-        </div>
-            </div>
-      <div class="card" onclick="window.open('https://code.xueersi.com/space/43084629');">
-        <div class="click-area">
-          <p>新耀文学社</p>
-          <p>旗下文学社</span></p>
-        </div>
-            </div>
-      <div class="card" onclick="window.open('https://code.xueersi.com/space/80405785');">
-        <div class="click-area">
-          <p>姜山工作室</p>
-          <p>旗下工作室</span></p>
-        </div>
-      </div>
-       <div class="card" onclick="window.open('https://code.xueersi.com/space/9030962');">
-        <div class="click-area">
-          <p>墨韵工作室</p>
-          <p>旗下工作室</span></p>
-        </div>
-            </div>
-
-     <div class="card" onclick="window.open('https://code.xueersi.com/space/21592857');">
-        <div class="click-area">
-          <p>海阳工作室</p>
-          <p>旗下工作室</span></p>
-        </div>
-            </div>
-     <div class="card" onclick="window.open('https://code.xueersi.com/space/21592857');">
-        <div class="click-area">
-          <p>CF工作室</p>
-          <p>旗下工作室</span></p>
-        </div>
-            </div>
+    <div class="intro">
+        <h1>《可多全家桶》</h1>
+        <h3>这里有可多工作室的所有项目</h3>
+        <h3>注：这是半成品</h3>
     </div>
-</div>
 
-  <div class="row" id="hm" style="display: flex;">
-    <div class="leftcolumn">
-      <div class="card">
-        <h2>欢迎来到新可多工作官网</h2>
-        <p><span>→</span> <a href="https://kdgzs.wochaonima.top/kdxxjss/" target="_blank">xxj aw（原学习机访问网站）</a></p>
-        <p><span>→</span> <a href="https://lcimh5.guozhufeng.com" target="_blank">凌CIM h5端</a></p>
-        <p><span>→</span> <a href="https://lcim.guozhufeng.com" target="_blank">凌CIM web端</a></p>
-        <p><span>→</span> <a href="https://c.ckim.chat/index.html#/" target="_blank">ckim</a></p>
-        <p class="center-red-text">hello~</p>
-        
-        <div class="center">
-          <img src="kdlogo.png" alt="我们的logo">
-        </div>
-      </div>
+    <div class="card-container" id="card-container">
+        <!-- 初始卡片将在这里显示 -->
     </div>
-    
-    <div class="rightcolumn">
-      <div class="card">
-        <h2>最新资讯</h2>
-        <p class="center-red-text">这是可多工作室官网旧址</p>
-        <p class="center-red-text">里面的部分信息已经失效</p>
-        <p class="center-red-text">仅供考古，新版制作ing...</p>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Confirmation dialog
+            if (confirm("是否转到CD社区？")) {
+                window.location.href = "https://cd.ckim.chat";
+            }
 
-      
-        
+            const cardData = JSON.parse(localStorage.getItem('cards')) || [
+                { href: 'https://kdgzs.wochaonima.top/', icon: 'fas fa-search', text: '可多工作室官网', description: '就是官网嘛' },
+                { href: 'https://kdgzs.wochaonima.top/kdxxjss/', icon: 'fas fa-search', text: 'xxj aw', description: '帮助学习机用户访问网站' },
+                { href: 'https://lcim.guozhufeng.com', icon: 'fas fa-search', text: '凌CIM', description: '合作伙伴广告' },
+                { href: 'https://cd.ckim.chat/', icon: 'fas fa-search', text: 'CD社区', description: '合作伙伴广告' },
+                { href: 'https://kdgzswsz.github.io/kdsq', icon: 'fas fa-search', text: '好康网站', description: '《可多x小黄书》' },
+            ];
 
-        
+            const cardContainer = document.getElementById('card-container');
 
-      </div>
-    </div>
-  </div>
-  <div class="row" id="xm" style="display: none;">
-    <div class="leftcolumn">
-      <div class="row">
-        <div class="card3" data-link="https://code.xueersi.com/home/project/detail?lang=scratch&pid=24624860&version=3.0&langType=scratch">
-          <h2>大型纪录片</h2>
-          <p>持续更新中，总点赞量高达400！#鬼畜#梗</p>
-        </div>
-        <div class="card3" data-link="https://kdgzswsz.github.io/">
-          <h2>新可多官网</h2>
-          <p>其实就是这里瓦...</p>
-        </div>
-        <div class="card3" data-link="https://kdgzswsz.github.io/">
-          <h2>kd好友圈</h2>
-          <p>类似朋友圈滴网站，正在开发中...</p>
-        </div>
-        <div class="card3" data-link="https://kdgzswsz.github.io/kdchm.github.io/">
-          <h2>《彩虹猫》</h2>
-          <p>一个恶搞网站</p>
-        </div>
-        <div class="card3" data-link="https://openai.com">
-          <h2>项目5</h2>
-          <p>未开发</p>
-        </div>
-        <div class="card3" data-link="https://openai.com">
-          <h2>项目6</h2>
-          <p>未开发</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row" id="cy" style="display: none;">
-    <div class="leftcolumn">
-      <div class="row">
-        <div class="card" onclick="openInNewTab('https://code.xueersi.com/space/9909258?to=homepages')" style="padding: 5px 18px;">
-          <h2>老w</h2>
-          <p>室长/创始人</p>
-        </div>
-        <div class="card" onclick="openInNewTab('https://code.xueersi.com/space/9439092?to=homepages')" style="padding: 4px 18px;">
-          <h2>陈致</h2>
-          <p>副室长</p>
-        </div>
-        <div class="card" onclick="openInNewTab('https://code.xueersi.com/space/24022994?to=homepages')" style="padding: 5px 18px;">
-          <h2>刘元序</h2>
-          <p>scratch部部长</p>
-        </div>
-        <div class="card" onclick="openInNewTab('https://code.xueersi.com/space/21659524?to=homepages')" style="padding: 5px 18px;">
-          <h2>樊伊航</h2>
-          <p>Python部部长</p>
-        </div>
-        <div class="card" onclick="openInNewTab('https://code.xueersi.com/space/24804907?to=homepages')" style="padding: 5px 18px;">
-          <h2>未定</h2>
-          <p>c++部部长</p>
-        </div>
-        <div class="card" onclick="openInNewTab('https://code.xueersi.com/space/22650542?to=homepages')" style="padding: 5px 18px;">
-          <h2>王翊好</h2>
-          <p>人事部部长</p>
-        </div>
-        <div class="card" onclick="openInNewTab('https://code.xueersi.com/home/project/detail?lang=code&pid=53259574&version=offline&form=python&langType=python')" style="padding: 5px 18px;">
-          <h2>未定</h2>
-          <p>宣传部部长</p>
-        </div>
-        <div class="card" onclick="openInNewTab('https://code.xueersi.com/home/project/detail?lang=code&pid=53259574&version=offline&form=python&langType=python')" style="padding: 5px 18px;">
-          <h2>未定</h2>
-          <p>未定</p>
-        </div>
-        <div class="card" style="padding: 5px 20px;">
-          <h2>以上是高管成员</h2>
-          <p>截止目前，我们大约有45人</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row" id="gywm" style="display: none;">
-    <div class="leftcolumn" style="display: inline-block;">
-      <div class="card2">
-        <p style="text-align: center; font-size: 35px;">关于新可多工作室</p>
-        <p style="text-align: center; font-size: 20px;">可多工作室成立于2024年1月20日，但中途因管理问题解散过，后于2024年5月22日重建，并改名为新可多工作室。</p>
-        <p style="text-align: center; font-size: 20px;">我们是一家充满活力和创新精神的工作室，旨在与其他工作室和团队建立合作关系，推动项目的发展。</p>
-        <p style="text-align: center; font-size: 20px;">我们的合作伙伴包括cz工作室、dece工作室、逆天团队、银河团队等，另外我们也与ckim建立了联动关系。</p>
-        <p style="text-align: center; font-size: 20px;">目前，我们正在推进大型纪录片等项目。偷偷告诉你，将来我们可能会上线小说系列哦！</p>
-        <p style="text-align: center; font-size: 20px;">同时，我们也推出了新的政策，废除微信唯一入口的限制，欢迎6到18岁的少年加入我们的大家庭。</p>
-        <p style="text-align: center; font-size: 20px;">————————————————————————————————————————————————————————</p>
-        <p style="text-align: center; font-size: 20px;">c站:可多工作室</p>
-        <p style="text-align: center; font-size: 20px;">微信:wsz18305960310</p>
-        <p style="text-align: center; font-size: 20px;">QQ：2755244890</p>
-        <p style="text-align: center; font-size: 20px;">ckim：kdgzs</p>
-        <p style="text-align: center; font-size: 20px;">泡泡im：WSZZ（已停用）</p>
-        <p style="text-align: center; font-size: 20px;">b站：可多工作室</p>
-        
-      </div>
-    </div>
-    <div class="card2">
-        <div class="center" style="height: 50px;">
-            <p style="text-align: center; font-size: 20px;">这是我们暑假发布的形象代表曲，快来听听吧！</p>
-        </div>
-        <div class="center" style="height: 50px;">
-            <p style="text-align: center; font-size: 20px;">《遇见更好的自己》</p>
-        </div>
-        <div class="center" style="height: 50px;">
-            <audio id="audio" src="kdmm.mp3" type="audio/mpeg" controls class="row"></audio>
-        </div>
-    </div>
-  </div>
-  <footer class="footer">
-    <p>© 2024 新可多工作室官网.所有权利保留。转载请申请并标明出处</p>
-  </footer>
+            function createCard(card) {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'card';
+                cardElement.innerHTML = `
+                    <a href="${card.href}" target="_blank">
+                        <i class="${card.icon}"></i>${card.text}
+                    </a>
+                    <div class="card-description">${card.description}</div>
+                `;
+                cardContainer.appendChild(cardElement);
+            }
 
-  <canvas id="fireworks" class="fireworks"></canvas>
-
-  <script>
-    function createFireworks({ config, anime }) {
-      const canvasElement = document.querySelector('#fireworks');
-      const defaultConfig = {
-        colors: config?.colors || [[255, 255, 255], [255, 0, 0], [0, 255, 0], [0, 0, 255]],
-        numberOfParticules: 20,
-        orbitRadius: { min: 50, max: 100 },
-        circleRadius: { min: 10, max: 20 },
-        diffuseRadius: { min: 50, max: 100 },
-        animeDuration: { min: 900, max: 1500 }
-      };
-      config = Object.assign(defaultConfig, config);
-
-      let pointerX = 0;
-      let pointerY = 0;
-      const colors = config.colors;
-
-      const canvasEl = document.querySelector('.fireworks');
-      const ctx = canvasEl.getContext('2d');
-
-      function setCanvasSize(canvasEl) {
-        canvasEl.width = window.innerWidth;
-        canvasEl.height = window.innerHeight;
-        canvasEl.style.width = `${window.innerWidth}px`;
-        canvasEl.style.height = `${window.innerHeight}px`;
-      }
-
-      function updateCoords(e) {
-        pointerX = e.clientX || (e?.touches[0] ? e.touches[0].clientX : e.changedTouches[0].clientX);
-        pointerY = e.clientY || (e?.touches[0] ? e.touches[0].clientY : e.changedTouches[0].clientY);
-      }
-
-      function setParticuleDirection(p) {
-        const angle = (anime.random(0, 360) * Math.PI) / 180;
-        const value = anime.random(config.diffuseRadius.min, config.diffuseRadius.max);
-        const radius = [-1, 1][anime.random(0, 1)] * value;
-        return {
-          x: p.x + radius * Math.cos(angle),
-          y: p.y + radius * Math.sin(angle)
-        };
-      }
-
-      function createParticule(x, y) {
-        const p = {
-          x,
-          y,
-          color: `rgba(${colors[anime.random(0, colors.length - 1)].join(',')},${anime.random(0.2, 0.8)})`,
-          radius: anime.random(config.circleRadius.min, config.circleRadius.max),
-          endPos: null,
-          draw() {}
-        };
-        p.endPos = setParticuleDirection(p);
-        p.draw = function () {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
-          ctx.fillStyle = p.color;
-          ctx.fill();
-        };
-        return p;
-      }
-
-      function createCircle(x, y) {
-        const p = {
-          x,
-          y,
-          color: '#000',
-          radius: 0.1,
-          alpha: 0.5,
-          lineWidth: 6,
-          draw() {}
-        };
-        p.draw = function () {
-          ctx.globalAlpha = p.alpha;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
-          ctx.lineWidth = p.lineWidth;
-          ctx.strokeStyle = p.color;
-          ctx.stroke();
-          ctx.globalAlpha = 1;
-        };
-        return p;
-      }
-
-      const render = anime({
-        duration: Infinity,
-        update() {
-          ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
-        }
-      });
-
-      document.addEventListener(
-        'pointerdown',
-        (e) => {
-          render.play();
-          updateCoords(e);
-          animateParticules(pointerX, pointerY);
-        },
-        false
-      );
-
-      window.addEventListener(
-        'resize',
-        () => {
-          setCanvasSize(canvasEl);
-        },
-        false
-      );
-
-      function animateParticules(x, y) {
-        const circle = createCircle(x, y);
-        const particules = [];
-        for (let i = 0; i < config.numberOfParticules; i++) {
-          particules.push(createParticule(x, y));
-        }
-        anime
-          .timeline()
-          .add({
-            targets: particules,
-            x: (p) => p.endPos.x,
-            y: (p) => p.endPos.y,
-            radius: 0.1,
-            duration: anime.random(config.animeDuration.min, config.animeDuration.max),
-            easing: 'easeOutExpo',
-            update: render.update
-          })
-          .add({
-            targets: circle,
-            radius: anime.random(config.orbitRadius.min, config.orbitRadius.max),
-            lineWidth: 0,
-            alpha: {
-              value: 0,
-              easing: 'linear',
-              duration: anime.random(600, 800)
-            },
-            duration: anime.random(1200, 1800),
-            easing: 'easeOutExpo',
-            update: render.update,
-            offset: 0
-          });
-      }
-
-      function handleVisibilityChange() {
-        if (document.hidden) {
-          render.pause();
-        } else {
-          render.play();
-        }
-      }
-
-      document.addEventListener('visibilitychange', handleVisibilityChange, false);
-      setCanvasSize(canvasElement);
-    }
-
-    function dian() {
-      const event = new MouseEvent('pointerdown', {
-        view: window,
-        bubbles: true,
-        cancelable: true
-      });
-      document.dispatchEvent(event);
-    }
-
-    createFireworks({ anime });
-  </script>
-  
+            cardData.forEach(createCard);
+        });
+    </script>
 </body>
 </html>
